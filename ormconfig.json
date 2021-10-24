@@ -1,7 +1,7 @@
 {
   "type": "postgres",
-  "port": 5432,
-  "host": "database-boilerplate-node",
+  "port": 9001,
+  "host": "localhost",
   "username": "boilerplate-node",
   "password": "boilerplate-node",
   "database": "boilerplate-node",
