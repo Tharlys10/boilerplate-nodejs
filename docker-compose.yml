@@ -1,6 +1,21 @@
 version: "3.7"
 
 services:
+  database: 
+    image: postgres
+    container_name: database-boilerplate-node
+    restart: always
+    ports:
+      - 9001:5432
+    environment: 
+      - POSTGRES_USER=boilerplate-node
+      - POSTGRES_PASSWORD=boilerplate-node
+      - POSTGRES_DB=boilerplate-node
+    volumes: 
+      - pgdata:/data/postgres
+    networks:
+      - boilerplate-node
+
   server:
     build: .
     container_name: boilerplate-node
@@ -12,7 +27,7 @@ services:
       - boilerplate-node
 
 volumes:
-  pdgata:
+  pgdata:
     driver: local
 
 networks:
