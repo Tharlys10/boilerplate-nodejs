@@ -22,7 +22,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
       name,
       email,
       password,
-      created_at: Date.now()
+      created_at: new Date()
     });
 
     this.users.push(user);
@@ -36,8 +36,6 @@ class UsersRepositoryInMemory implements IUsersRepository {
     this.users[index].name = name;
     this.users[index].email = name;
     this.users[index].updated_at = new Date();
-
-    console.log(this.users[index]);
 
     return this.users[index];
   }
