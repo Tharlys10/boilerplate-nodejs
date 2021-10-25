@@ -10,6 +10,9 @@ import "@shared/container";
 import { AppError } from "@shared/errors/AppError";
 import { router } from "./routes";
 
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "@docs/swagger.json";
+
 createConnection();
 
 const app = express();
@@ -19,6 +22,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api", router);
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // errors
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
