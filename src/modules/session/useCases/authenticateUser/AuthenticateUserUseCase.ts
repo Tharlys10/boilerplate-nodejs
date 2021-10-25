@@ -5,14 +5,7 @@ import { sign } from "jsonwebtoken";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
 import auth from "@config/auth";
-
-interface IAuthenticateResponseDTO {
-  token: string;
-  user: {
-    name: string;
-    email: string;
-  },
-}
+import { IAuthenticateResponseDTO } from "@modules/session/dtos/IAuthenticateResponseDTO";
 
 @injectable()
 class AuthenticateUserUseCase {
