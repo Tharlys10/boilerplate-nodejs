@@ -29,7 +29,7 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
-      statusCode: err.statusCode,
+      status_code: err.statusCode,
       message: err.message
     });
   }

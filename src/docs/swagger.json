@@ -15,6 +15,43 @@
     }
   ],
   "paths": {
+    "/session": {
+      "post": {
+        "summary": "Authenticate",
+        "description": "Authenticate user",
+        "tags": [
+          "Session"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Authenticated"
+          },
+          "400": {
+            "description": "E-mail ou password incorrect"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "summary": "Create user",
@@ -43,14 +80,14 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Created"
           },
           "400": {
             "description": "User already exists"
           },
           "500": {
-            "description": "Internal server error!"
+            "description": "Internal server error"
           }
         }
       }
