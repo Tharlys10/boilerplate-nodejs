@@ -16,7 +16,7 @@ class UpdateUserUseCase {
     const checkExistUser = await this.usersRepository.findById(id);
 
     if (!checkExistUser) {
-      throw new AppError("User not found");
+      throw new AppError("User not found", 404);
     }
 
     // Check e-mail if disponible

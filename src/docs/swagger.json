@@ -90,6 +90,49 @@
             "description": "Internal server error"
           }
         }
+      },
+      "put": {
+        "summary": "Update user",
+        "description": "Update data user",
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "400": {
+            "description": "E-mail in use"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
       }
     }
   },
@@ -117,6 +160,13 @@
             "type": "string"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }

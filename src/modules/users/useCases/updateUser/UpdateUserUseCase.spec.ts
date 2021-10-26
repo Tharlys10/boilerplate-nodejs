@@ -34,7 +34,7 @@ describe("Update User", () => {
       id,
       name,
       email
-    })).rejects.toEqual(new AppError("User not found"))
+    })).rejects.toEqual(new AppError("User not found", 404))
   });
 
   it("should not able to update user if email in use", async () => {
