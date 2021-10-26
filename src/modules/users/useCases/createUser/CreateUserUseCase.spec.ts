@@ -1,5 +1,6 @@
 import { UsersRepositoryInMemory } from "@modules/users/repositories/in-memory/UsersRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
+import { hash } from "bcrypt";
 import { CreateUserUseCase } from "./CreateUserUseCase"
 
 let createUserUseCase: CreateUserUseCase;
@@ -26,7 +27,7 @@ describe("Create User", () => {
     const email = "test@example.com";
     const password = "12345678";
 
-    await createUserUseCase.execute({ name, email, password });
+    await usersRepositoryInMemory.create({ name, email, password: await hash(password, 8) });
 
     await expect(createUserUseCase.execute({
       name,

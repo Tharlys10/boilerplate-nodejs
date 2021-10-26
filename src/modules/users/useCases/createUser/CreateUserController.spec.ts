@@ -35,7 +35,7 @@ describe("Create User Controller", () => {
     const response = await request(app)
       .post("/api/users")
       .send({
-        name: "User Test",
+        name: "User Test Already Exists",
         email: "user@example.com",
         password: "12345678"
       });
