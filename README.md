@@ -1,4 +1,4 @@
-# Boilerplate NodeJS
+# 🌏 Boilerplate NodeJS
 
 <img src=".github/assets/illustrationOpportunities.png" width="200px" align="right"/>
 
