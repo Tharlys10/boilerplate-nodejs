@@ -34,7 +34,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
     const index = this.users.findIndex((user) => user.id === id);
 
     this.users[index].name = name;
-    this.users[index].email = name;
+    this.users[index].email = email;
     this.users[index].updated_at = new Date();
 
     return this.users[index];

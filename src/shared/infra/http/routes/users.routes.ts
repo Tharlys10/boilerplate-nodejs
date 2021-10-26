@@ -8,7 +8,6 @@ import { ensureAuthentication } from "../middlewares/ensureAuthentication";
 
 const usersRoutes = Router();
 
-
 usersRoutes.post("/", new CreateUserController().handle);
 usersRoutes.get("/:id", ensureAuthentication, new FindUserByIdController().handle);
 usersRoutes.put("/", ensureAuthentication, new UpdateUserController().handle);
