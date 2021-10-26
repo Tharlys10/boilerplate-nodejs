@@ -133,6 +133,55 @@
             "description": "Internal server error"
           }
         }
+      },
+      "get": {
+        "summary": "Get all users",
+        "description": "Get data all users",
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "Amount",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
       }
     },
     "/users/{id}": {

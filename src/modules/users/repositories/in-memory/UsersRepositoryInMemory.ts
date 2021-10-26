@@ -1,11 +1,19 @@
 import { ICreateUserDTO } from "@modules/users/dtos/ICreateUserDTO";
 import { IUpdateUserDTO } from "@modules/users/dtos/IUpdateUserDTO";
+import { IUsersAllResponse } from "@modules/users/dtos/IUsersAllResponse";
 import { User } from "@modules/users/infra/typeorm/entities/User";
 
 import { IUsersRepository } from "../IUsersRepository";
 
 class UsersRepositoryInMemory implements IUsersRepository {
   private users: User[] = [];
+
+  async find(limit: number, offset: number, search: string): Promise<{users: User[], total: number}> {
+    const users = this.users;
+    const total = this.users.length;
+
+    return {users, total}
+  }
 
   async findByEmail(email: string): Promise<User> {
     return this.users.find((user) => user.email === email);
